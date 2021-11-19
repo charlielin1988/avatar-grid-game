@@ -1,1 +1,13 @@
+h1.welcome_message {
+  height: 25 vh;
+  width: 25 vw;
+  text-align: center;
+  text-decoration: bold;
+}
 
+#gampage {
+  height: 10 vh;
+  width: 20 vh;
+  align-items: center;
+  text-decoration: none;
+}
