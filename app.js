@@ -173,7 +173,7 @@ function checkStatus() {
       spaces[6].innerText === currentPlayer &&
       spaces[12].innerText === currentPlayer &&
       spaces[18].innerText === currentPlayer) ||
-  (spaces[1].innerText === currentPlayer &&
+    (spaces[1].innerText === currentPlayer &&
       spaces[7].innerText === currentPlayer &&
       spaces[13].innerText === currentPlayer &&
       spaces[19].innerText === currentPlayer) ||
@@ -362,7 +362,7 @@ function checkStatus() {
       spaces[32].innerText === currentPlayer &&
       spaces[37].innerText === currentPlayer) ||
     (spaces[23].innerText === currentPlayer &&
-      6(spaces[28].innerText === currentPlayer &&
+      spaces[28].innerText === currentPlayer &&
       spaces[33].innerText === currentPlayer &&
       spaces[39].innerText === currentPlayer)
   ) {
