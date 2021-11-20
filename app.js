@@ -1,4 +1,17 @@
 console.log('hello');
+
+const playerTurn = document.querySelector('.playerTurn');
+
+const spaces = document.querySelectorAll('.space');
+
+const resetGame = document.querySelector('.reset-game');
+
+const gameResult = document.querySelector('.game-result');
+
+let currentPlayer = 'x';
+
+let gameOver = false;
+
 const winningCombos = [
   [0, 1, 2, 3],
   [6, 7, 8, 9],
@@ -51,7 +64,7 @@ const winningCombos = [
   [7, 14, 21, 28],
   [6, 13, 20, 27],
   [14, 21, 28, 35],
-  [13, 20, 27, 24],
+  [13, 20, 27, 34],
   [12, 19, 26, 33],
   [18, 25, 32, 39],
   [20, 27, 34, 41],
@@ -73,3 +86,341 @@ const winningCombos = [
   [22, 27, 32, 37],
   [23, 28, 33, 39]
 ];
+
+function checkStatus() {
+  if (
+    (spaces[0].innerText === currentPlayer &&
+      spaces[1].innerText === currentPlayer &&
+      spaces[2].innerText === currentPlayer &&
+      spaces[3].innerText === currentPlayer) ||
+    (spaces[6].innerText === currentPlayer &&
+      spaces[7].innerText === currentPlayer &&
+      spaces[8].innerText === currentPlayer &&
+      spaces[9].innerText === currentPlayer) ||
+    (spaces[12].innerText === currentPlayer &&
+      spaces[13].innerText === currentPlayer &&
+      spaces[14].innerText === currentPlayer &&
+      spaces[15].innerText === currentPlayer) ||
+    (spaces[18].innerText === currentPlayer &&
+      spaces[19].innerText === currentPlayer &&
+      spaces[20].innerText === currentPlayer &&
+      spaces[21].innerText === currentPlayer) ||
+    (spaces[24].innerText === currentPlayer &&
+      spaces[25].innerText === currentPlayer &&
+      spaces[26].innerText === currentPlayer &&
+      spaces[27].innerText === currentPlayer) ||
+    (spaces[30].innerText === currentPlayer &&
+      spaces[31].innerText === currentPlayer &&
+      spaces[32].innerText === currentPlayer &&
+      spaces[33].innerText === currentPlayer) ||
+    (spaces[36].innerText === currentPlayer &&
+      spaces[37].innerText === currentPlayer &&
+      spaces[38].innerText === currentPlayer &&
+      spaces[39].innerText === currentPlayer) ||
+    (spaces[1].innerText === currentPlayer &&
+      spaces[2].innerText === currentPlayer &&
+      spaces[3].innerText === currentPlayer &&
+      spaces[4].innerText === currentPlayer) ||
+    (spaces[7].innerText === currentPlayer &&
+      spaces[8].innerText === currentPlayer &&
+      spaces[9].innerText === currentPlayer &&
+      spaces[10].innerText === currentPlayer) ||
+    (spaces[13].innerText === currentPlayer &&
+      spaces[14].innerText === currentPlayer &&
+      spaces[15].innerText === currentPlayer &&
+      spaces[16].innerText === currentPlayer) ||
+    (spaces[19].innerText === currentPlayer &&
+      spaces[20].innerText === currentPlayer &&
+      spaces[21].innerText === currentPlayer &&
+      spaces[22].innerText === currentPlayer) ||
+    (spaces[31].innerText === currentPlayer &&
+      spaces[32].innerText === currentPlayer &&
+      spaces[33].innerText === currentPlayer &&
+      spaces[34].innerText === currentPlayer) ||
+    (spaces[37].innerText === currentPlayer &&
+      spaces[38].innerText === currentPlayer &&
+      spaces[39].innerText === currentPlayer &&
+      spaces[40].innerText === currentPlayer) ||
+    (spaces[2].innerText === currentPlayer &&
+      spaces[3].innerText === currentPlayer &&
+      spaces[4].innerText === currentPlayer &&
+      spaces[5].innerText === currentPlayer) ||
+    (spaces[8].innerText === currentPlayer &&
+      spaces[9].innerText === currentPlayer &&
+      spaces[10].innerText === currentPlayer &&
+      spaces[11].innerText === currentPlayer) ||
+    (spaces[14].innerText === currentPlayer &&
+      spaces[15].innerText === currentPlayer &&
+      spaces[16].innerText === currentPlayer &&
+      spaces[17].innerText === currentPlayer) ||
+    (spaces[20].innerText === currentPlayer &&
+      spaces[21].innerText === currentPlayer &&
+      spaces[22].innerText === currentPlayer &&
+      spaces[23].innerText === currentPlayer) ||
+    (spaces[26].innerText === currentPlayer &&
+      spaces[27].innerText === currentPlayer &&
+      spaces[28].innerText === currentPlayer &&
+      spaces[29].innerText === currentPlayer) ||
+    (spaces[32].innerText === currentPlayer &&
+      spaces[33].innerText === currentPlayer &&
+      spaces[34].innerText === currentPlayer &&
+      spaces[35].innerText === currentPlayer) ||
+    (spaces[38].innerText === currentPlayer &&
+      spaces[39].innerText === currentPlayer &&
+      spaces[40].innerText === currentPlayer &&
+      spaces[41].innerText === currentPlayer) ||
+    (spaces[0].innerText === currentPlayer &&
+      spaces[6].innerText === currentPlayer &&
+      spaces[12].innerText === currentPlayer &&
+      spaces[18].innerText === currentPlayer) ||
+  (spaces[1].innerText === currentPlayer &&
+      spaces[7].innerText === currentPlayer &&
+      spaces[13].innerText === currentPlayer &&
+      spaces[19].innerText === currentPlayer) ||
+    (spaces[2].innerText === currentPlayer &&
+      spaces[8].innerText === currentPlayer &&
+      spaces[14].innerText === currentPlayer &&
+      spaces[20].innerText === currentPlayer) ||
+    (spaces[3].innerText === currentPlayer &&
+      spaces[9].innerText === currentPlayer &&
+      spaces[15].innerText === currentPlayer &&
+      spaces[21].innerText === currentPlayer) ||
+    (spaces[4].innerText === currentPlayer &&
+      spaces[10].innerText === currentPlayer &&
+      spaces[16].innerText === currentPlayer &&
+      spaces[22].innerText === currentPlayer) ||
+    (spaces[5].innerText === currentPlayer &&
+      spaces[11].innerText === currentPlayer &&
+      spaces[17].innerText === currentPlayer &&
+      spaces[23].innerText === currentPlayer) ||
+    (spaces[6].innerText === currentPlayer &&
+      spaces[12].innerText === currentPlayer &&
+      spaces[18].innerText === currentPlayer &&
+      spaces[24].innerText === currentPlayer) ||
+    (spaces[7].innerText === currentPlayer &&
+      spaces[13].innerText === currentPlayer &&
+      spaces[19].innerText === currentPlayer &&
+      spaces[25].innerText === currentPlayer) ||
+    (spaces[8].innerText === currentPlayer &&
+      spaces[14].innerText === currentPlayer &&
+      spaces[20].innerText === currentPlayer &&
+      spaces[26].innerText === currentPlayer) ||
+    (spaces[9].innerText === currentPlayer &&
+      spaces[15].innerText === currentPlayer &&
+      spaces[21].innerText === currentPlayer &&
+      spaces[27].innerText === currentPlayer) ||
+    (spaces[10].innerText === currentPlayer &&
+      spaces[16].innerText === currentPlayer &&
+      spaces[22].innerText === currentPlayer &&
+      spaces[28].innerText === currentPlayer) ||
+    (spaces[11].innerText === currentPlayer &&
+      spaces[17].innerText === currentPlayer &&
+      spaces[23].innerText === currentPlayer &&
+      spaces[29].innerText === currentPlayer) ||
+    (spaces[12].innerText === currentPlayer &&
+      spaces[18].innerText === currentPlayer &&
+      spaces[24].innerText === currentPlayer &&
+      spaces[30].innerText === currentPlayer) ||
+    (spaces[13].innerText === currentPlayer &&
+      spaces[19].innerText === currentPlayer &&
+      spaces[25].innerText === currentPlayer &&
+      spaces[31].innerText === currentPlayer) ||
+    (spaces[14].innerText === currentPlayer &&
+      spaces[20].innerText === currentPlayer &&
+      spaces[26].innerText === currentPlayer &&
+      spaces[32].innerText === currentPlayer) ||
+    (spaces[15].innerText === currentPlayer &&
+      spaces[21].innerText === currentPlayer &&
+      spaces[27].innerText === currentPlayer &&
+      spaces[33].innerText === currentPlayer) ||
+    (spaces[16].innerText === currentPlayer &&
+      spaces[22].innerText === currentPlayer &&
+      spaces[28].innerText === currentPlayer &&
+      spaces[34].innerText === currentPlayer) ||
+    (spaces[17].innerText === currentPlayer &&
+      spaces[23].innerText === currentPlayer &&
+      spaces[29].innerText === currentPlayer &&
+      spaces[35].innerText === currentPlayer) ||
+    (spaces[18].innerText === currentPlayer &&
+      spaces[24].innerText === currentPlayer &&
+      spaces[30].innerText === currentPlayer &&
+      spaces[36].innerText === currentPlayer) ||
+    (spaces[19].innerText === currentPlayer &&
+      spaces[25].innerText === currentPlayer &&
+      spaces[31].innerText === currentPlayer &&
+      spaces[37].innerText === currentPlayer) ||
+    (spaces[20].innerText === currentPlayer &&
+      spaces[26].innerText === currentPlayer &&
+      spaces[32].innerText === currentPlayer &&
+      spaces[38].innerText === currentPlayer) ||
+    (spaces[21].innerText === currentPlayer &&
+      spaces[27].innerText === currentPlayer &&
+      spaces[33].innerText === currentPlayer &&
+      spaces[39].innerText === currentPlayer) ||
+    (spaces[22].innerText === currentPlayer &&
+      spaces[28].innerText === currentPlayer &&
+      spaces[34].innerText === currentPlayer &&
+      spaces[40].innerText === currentPlayer) ||
+    (spaces[23].innerText === currentPlayer &&
+      spaces[29].innerText === currentPlayer &&
+      spaces[35].innerText === currentPlayer &&
+      spaces[41].innerText === currentPlayer) ||
+    (spaces[2].innerText === currentPlayer &&
+      spaces[9].innerText === currentPlayer &&
+      spaces[16].innerText === currentPlayer &&
+      spaces[23].innerText === currentPlayer) ||
+    (spaces[1].innerText === currentPlayer &&
+      spaces[8].innerText === currentPlayer &&
+      spaces[15].innerText === currentPlayer &&
+      spaces[22].innerText === currentPlayer) ||
+    (spaces[0].innerText === currentPlayer &&
+      spaces[7].innerText === currentPlayer &&
+      spaces[14].innerText === currentPlayer &&
+      spaces[21].innerText === currentPlayer) ||
+    (spaces[8].innerText === currentPlayer &&
+      spaces[15].innerText === currentPlayer &&
+      spaces[22].innerText === currentPlayer &&
+      spaces[29].innerText === currentPlayer) ||
+    (spaces[7].innerText === currentPlayer &&
+      spaces[14].innerText === currentPlayer &&
+      spaces[21].innerText === currentPlayer &&
+      spaces[28].innerText === currentPlayer) ||
+    (spaces[6].innerText === currentPlayer &&
+      spaces[13].innerText === currentPlayer &&
+      spaces[20].innerText === currentPlayer &&
+      spaces[27].innerText === currentPlayer) ||
+    (spaces[14].innerText === currentPlayer &&
+      spaces[21].innerText === currentPlayer &&
+      spaces[28].innerText === currentPlayer &&
+      spaces[35].innerText === currentPlayer) ||
+    (spaces[13].innerText === currentPlayer &&
+      spaces[20].innerText === currentPlayer &&
+      spaces[27].innerText === currentPlayer &&
+      spaces[34].innerText === currentPlayer) ||
+    (spaces[12].innerText === currentPlayer &&
+      spaces[19].innerText === currentPlayer &&
+      spaces[26].innerText === currentPlayer &&
+      spaces[33].innerText === currentPlayer) ||
+    (spaces[18].innerText === currentPlayer &&
+      spaces[25].innerText === currentPlayer &&
+      spaces[32].innerText === currentPlayer &&
+      spaces[39].innerText === currentPlayer) ||
+    (spaces[20].innerText === currentPlayer &&
+      spaces[27].innerText === currentPlayer &&
+      spaces[34].innerText === currentPlayer &&
+      spaces[41].innerText === currentPlayer) ||
+    (spaces[19].innerText === currentPlayer &&
+      spaces[26].innerText === currentPlayer &&
+      spaces[33].innerText === currentPlayer &&
+      spaces[40].innerText === currentPlayer) ||
+    (spaces[18].innerText === currentPlayer &&
+      spaces[25].innerText === currentPlayer &&
+      spaces[32].innerText === currentPlayer &&
+      spaces[39].innerText === currentPlayer) ||
+    (spaces[3].innerText === currentPlayer &&
+      spaces[8].innerText === currentPlayer &&
+      spaces[13].innerText === currentPlayer &&
+      spaces[18].innerText === currentPlayer) ||
+    (spaces[4].innerText === currentPlayer &&
+      spaces[9].innerText === currentPlayer &&
+      spaces[14].innerText === currentPlayer &&
+      spaces[19].innerText === currentPlayer) ||
+    (spaces[5].innerText === currentPlayer &&
+      spaces[10].innerText === currentPlayer &&
+      spaces[15].innerText === currentPlayer &&
+      spaces[20].innerText === currentPlayer) ||
+    (spaces[9].innerText === currentPlayer &&
+      spaces[14].innerText === currentPlayer &&
+      spaces[19].innerText === currentPlayer &&
+      spaces[24].innerText === currentPlayer) ||
+    (spaces[10].innerText === currentPlayer &&
+      spaces[15].innerText === currentPlayer &&
+      spaces[20].innerText === currentPlayer &&
+      spaces[25].innerText === currentPlayer) ||
+    (spaces[11].innerText === currentPlayer &&
+      spaces[16].innerText === currentPlayer &&
+      spaces[21].innerText === currentPlayer &&
+      spaces[26].innerText === currentPlayer) ||
+    (spaces[15].innerText === currentPlayer &&
+      spaces[20].innerText === currentPlayer &&
+      spaces[25].innerText === currentPlayer &&
+      spaces[30].innerText === currentPlayer) ||
+    (spaces[16].innerText === currentPlayer &&
+      spaces[21].innerText === currentPlayer &&
+      spaces[26].innerText === currentPlayer &&
+      spaces[31].innerText === currentPlayer) ||
+    (spaces[17].innerText === currentPlayer &&
+      spaces[22].innerText === currentPlayer &&
+      spaces[27].innerText === currentPlayer &&
+      spaces[32].innerText === currentPlayer) ||
+    (spaces[21].innerText === currentPlayer &&
+      spaces[26].innerText === currentPlayer &&
+      spaces[31].innerText === currentPlayer &&
+      spaces[36].innerText === currentPlayer) ||
+    (spaces[22].innerText === currentPlayer &&
+      spaces[27].innerText === currentPlayer &&
+      spaces[32].innerText === currentPlayer &&
+      spaces[37].innerText === currentPlayer) ||
+    (spaces[23].innerText === currentPlayer &&
+      6(spaces[28].innerText === currentPlayer &&
+      spaces[33].innerText === currentPlayer &&
+      spaces[39].innerText === currentPlayer)
+  ) {
+    return true;
+  } else {
+    let x = 0;
+    let o = 0;
+    for (let i = 0; i < spaces.length; i++) {
+      if (spaces[i].innerText === 'x') {
+        x++;
+      } else if (spaces[i].innerText === 'o') {
+        o++;
+      }
+    }
+    if (x + o === 42) {
+      gameResult.innerText = 'DRAW!';
+    }
+  }
+}
+for (let i = 0; i < spaces.length; i++) {
+  spaces[i].addEventListener('click', function () {
+    if (
+      (spaces[i].innerText == 'x' && spaces[i].innerText != 'o') ||
+      (spaces[i].innerText == 'o' && spaces[i].innerText != 'x')
+    ) {
+      return;
+    }
+    for (let i = 0; i < spaces.length; i++) {}
+    if (currentPlayer === 'x') {
+      spaces[i].innerText = 'x';
+      checkStatus();
+      if (checkStatus()) {
+        gameResult.innerText = 'You Won!';
+        gameOver = true;
+      } else {
+        playerTurn.innerText = `Player 2's Turn`;
+        gameOver = false;
+      }
+
+      currentPlayer = 'o';
+    } else if (currentPlayer === 'o') {
+      spaces[i].innerText = 'o';
+      checkStatus();
+      if (checkStatus()) {
+        gameResult.innerText = 'Player 2 Won!';
+        gameOver = true;
+      } else {
+        playerTurn.innerText = 'Your Turn';
+        gameOver = false;
+      }
+      currentPlayer = 'x';
+    }
+  });
+}
+
+for (let i = 0; i < spaces.length; i++) {
+  resetGame.addEventListener('click', function () {
+    spaces[i].innerText = '';
+    gameOver = false;
+  });
+}
