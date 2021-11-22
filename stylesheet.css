@@ -62,3 +62,6 @@ body {
   background-repeat: no-repeat;
   background-size: 25%;
 }
+.space:hover {
+  background-color: #ffd4e5;
+}
