@@ -372,11 +372,11 @@ function checkStatus() {
     for (let i = 0; i < spaces.length; i++) {
       if (spaces[i].innerText === 'momo') {
         momo++;
-      } else if (spaces[i].innerText === 'o') {
-        o++;
+      } else if (spaces[i].innerText === 'appa') {
+        appa++;
       }
     }
-    if (momo + o === 42) {
+    if (momo + appa === 42) {
       gameResult.innerText = 'DRAW!';
     }
   }
@@ -389,7 +389,7 @@ for (let i = 0; i < spaces.length; i++) {
     }
     if (
       (spaces[i].innerText == 'momo' && spaces[i].innerText != 'appa') ||
-      (spaces[i].innerText == 'o' && spaces[i].innerText != 'momo')
+      (spaces[i].innerText == 'appa' && spaces[i].innerText != 'momo')
     ) {
       return;
     }
@@ -405,9 +405,9 @@ for (let i = 0; i < spaces.length; i++) {
         gameOver = false;
       }
 
-      currentPlayer = 'o';
-    } else if (currentPlayer === 'o') {
-      spaces[i].innerText = 'o';
+      currentPlayer = 'appa';
+    } else if (currentPlayer === 'appa') {
+      spaces[i].innerText = 'appa';
       checkStatus();
       if (checkStatus()) {
         gameResult.innerText = 'Player 2 Wins!';
