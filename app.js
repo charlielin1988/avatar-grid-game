@@ -324,6 +324,7 @@ for (let i = 0; i < spaces.length; i++) {
       if (checkStatus()) {
         gameResult.innerHTML = 'Momo Wins!';
         gameOver = true;
+        turn.innerHTML = `Momo's Turn`;
       } else {
         turn.innerHTML = `Appa's Turn`;
         gameOver = false;
