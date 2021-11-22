@@ -34,10 +34,12 @@ h1.welcome-gamepage {
 .space {
   display: inline-block;
   border: 1px solid black;
+  font-size: 25px;
 }
 #turn {
   text-align: left;
   color: black;
+  font-size: 25px;
 }
 
 body {
@@ -54,6 +56,12 @@ body {
 .space:hover {
   background-color: #ffd4e5;
 }
-.momo {
-  padding: 0, 50, 0, 0px;
+div.momo {
+  display: inline-block;
+  margin: 0 50 0 0px;
+}
+
+div.appa {
+  display: inline-block;
+  margin: 0 0 0 80px;
 }
