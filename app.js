@@ -368,7 +368,7 @@ function checkStatus() {
     return true;
   } else {
     let momo = 0;
-    let o = 0;
+    let appa = 0;
     for (let i = 0; i < spaces.length; i++) {
       if (spaces[i].innerText === 'momo') {
         momo++;
@@ -398,10 +398,10 @@ for (let i = 0; i < spaces.length; i++) {
       spaces[i].innerText = 'momo';
       checkStatus();
       if (checkStatus()) {
-        gameResult.innerText = 'Player 1 Wins!';
+        gameResult.innerText = 'Momo Wins!';
         gameOver = true;
       } else {
-        turn.innerText = `Player 2's Turn`;
+        turn.innerText = `Appa's Turn`;
         gameOver = false;
       }
 
@@ -410,10 +410,10 @@ for (let i = 0; i < spaces.length; i++) {
       spaces[i].innerText = 'appa';
       checkStatus();
       if (checkStatus()) {
-        gameResult.innerText = 'Player 2 Wins!';
+        gameResult.innerText = 'Appa Wins!';
         gameOver = true;
       } else {
-        turn.innerText = `Player 1's Turn`;
+        turn.innerText = `Momo's Turn`;
         gameOver = false;
       }
       currentPlayer = 'momo';
@@ -425,7 +425,7 @@ for (let i = 0; i < spaces.length; i++) {
   resetGame.addEventListener('click', function () {
     spaces[i].innerText = '';
     gameResult.innerText = '';
-    turn.innerText = `Player 1's Turn`;
+    turn.innerText = `Momo's Turn`;
     gameOver = false;
   });
 }
