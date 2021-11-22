@@ -1,4 +1,4 @@
-# The-Best-Connect-4-Ever-
+# Connect-Four
 
 ### _Description_
 

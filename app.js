@@ -4,10 +4,29 @@ const spaces = document.querySelectorAll('.space');
 
 const resetGame = document.querySelector('.reset-game');
 
-let currentPlayer = 'x';
+let currentPlayer = 'momo';
+
+let playerImages = ['momo', 'appa'];
 
 const gameResult = document.querySelector('.game-result');
 let gameOver = false;
+
+const momo = document.createElement('img');
+document.querySelector(spaces.innerText);
+momo.setAttribute(
+  'src',
+  'https://i.pinimg.com/originals/e7/eb/16/e7eb168531fb9586c732d18aff1c8e7e.png'
+);
+momo.style.width = '10px';
+
+const appa = document.createElement('img2');
+documentquerySelector(spaces.innerText).appendChild(appa);
+appa.setAttribute(
+  'src',
+  'https://i.pinimg.com/originals/8a/92/60/8a926008fbd0c6e4994cb5a9cf2d1230.png'
+);
+appa.style.width = '10px';
+
 // const winningCombos = [
 //   [0, 1, 2, 3],
 //   [6, 7, 8, 9],
@@ -366,16 +385,16 @@ function checkStatus() {
     gameOver = true;
     return true;
   } else {
-    let x = 0;
+    let momo = 0;
     let o = 0;
     for (let i = 0; i < spaces.length; i++) {
-      if (spaces[i].innerText === 'x') {
-        x++;
-      } else if (spaces[i].innerText === 'o') {
-        o++;
+      if (spaces[i].innerText === 'momo') {
+        momo++;
+      } else if (spaces[i].innerText === 'appa') {
+        appa++;
       }
     }
-    if (x + o === 42) {
+    if (momo + appa === 42) {
       gameResult.innerText = 'DRAW!';
     }
   }
@@ -387,14 +406,14 @@ for (let i = 0; i < spaces.length; i++) {
       return;
     }
     if (
-      (spaces[i].innerText == 'x' && spaces[i].innerText != 'o') ||
-      (spaces[i].innerText == 'o' && spaces[i].innerText != 'x')
+      (spaces[i].innerText == 'momo' && spaces[i].innerText != 'appa') ||
+      (spaces[i].innerText == 'appa' && spaces[i].innerText != 'momo')
     ) {
       return;
     }
 
-    if (currentPlayer === 'x') {
-      spaces[i].innerText = 'x';
+    if (currentPlayer === 'momo') {
+      spaces[i].innerText = 'momo';
       checkStatus();
       if (checkStatus()) {
         gameResult.innerText = 'Player 1 Wins!';
@@ -404,9 +423,9 @@ for (let i = 0; i < spaces.length; i++) {
         gameOver = false;
       }
 
-      currentPlayer = 'o';
-    } else if (currentPlayer === 'o') {
-      spaces[i].innerText = 'o';
+      currentPlayer = 'appa';
+    } else if (currentPlayer === 'appa') {
+      spaces[i].innerText = 'appa';
       checkStatus();
       if (checkStatus()) {
         gameResult.innerText = 'Player 2 Wins!';
@@ -415,7 +434,7 @@ for (let i = 0; i < spaces.length; i++) {
         turn.innerText = `Player 2's Turn`;
         gameOver = false;
       }
-      currentPlayer = 'x';
+      currentPlayer = 'momo';
     }
   });
 }
