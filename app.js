@@ -1,7 +1,13 @@
-let turn = document.querySelector('.turn');
-let spaces = document.querySelectorAll('.space');
-let resetGame = document.querySelector('.reset-game');
+const turn = document.querySelector('.turn');
+
+const spaces = document.querySelectorAll('.space');
+
+const resetGame = document.querySelector('.reset-game');
+
 let currentPlayer = 'x';
+
+const gameResult = document.querySelector('.game-result');
+let gameOver = false;
 // const winningCombos = [
 //   [0, 1, 2, 3],
 //   [6, 7, 8, 9],
@@ -78,6 +84,7 @@ let currentPlayer = 'x';
 // ];
 
 function checkStatus() {
+  let gameOver = false;
   if (
     (spaces[0].innerText === currentPlayer &&
       spaces[1].innerText === currentPlayer &&
@@ -356,6 +363,7 @@ function checkStatus() {
       spaces[33].innerText === currentPlayer &&
       spaces[39].innerText === currentPlayer)
   ) {
+    gameOver = true;
     return true;
   } else {
     let x = 0;
@@ -375,20 +383,24 @@ function checkStatus() {
 
 for (let i = 0; i < spaces.length; i++) {
   spaces[i].addEventListener('click', function () {
+    if (gameOver === true) {
+      return;
+    }
     if (
       (spaces[i].innerText == 'x' && spaces[i].innerText != 'o') ||
       (spaces[i].innerText == 'o' && spaces[i].innerText != 'x')
     ) {
       return;
     }
+
     if (currentPlayer === 'x') {
       spaces[i].innerText = 'x';
       checkStatus();
       if (checkStatus()) {
-        gameResult.innerText = 'You Won!';
+        gameResult.innerText = 'Player 1 Wins!';
         gameOver = true;
       } else {
-        turn.innerText = `Player 2's Turn`;
+        turn.innerText = `Player 1's Turn`;
         gameOver = false;
       }
 
@@ -397,10 +409,10 @@ for (let i = 0; i < spaces.length; i++) {
       spaces[i].innerText = 'o';
       checkStatus();
       if (checkStatus()) {
-        gameResult.innerText = 'Player 2 Won!';
+        gameResult.innerText = 'Player 2 Wins!';
         gameOver = true;
       } else {
-        turn.innerText = 'Your Turn';
+        turn.innerText = `Player 2's Turn`;
         gameOver = false;
       }
       currentPlayer = 'x';
@@ -411,6 +423,8 @@ for (let i = 0; i < spaces.length; i++) {
 for (let i = 0; i < spaces.length; i++) {
   resetGame.addEventListener('click', function () {
     spaces[i].innerText = '';
+    gameResult.innerText = '';
+    turn.innerText = `Player 1's Turn`;
     gameOver = false;
   });
 }
