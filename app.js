@@ -313,6 +313,7 @@ function checkStatus() {
 for (let i = 0; i < spaces.length; i++) {
   spaces[i].addEventListener('click', function () {
     if (gameOver === true) {
+      resetGame.style.opacity = 1;
       return;
     }
     if (
@@ -328,6 +329,7 @@ for (let i = 0; i < spaces.length; i++) {
       if (checkStatus()) {
         gameResult.innerHTML = 'Momo Wins!';
         gameOver = true;
+        resetGame.style.opacity = 1;
         turn.innerHTML = `Momo's Turn`;
       } else {
         turn.innerHTML = `Appa's Turn`;
@@ -341,6 +343,7 @@ for (let i = 0; i < spaces.length; i++) {
       if (checkStatus()) {
         gameResult.innerHTML = 'Appa Wins!';
         gameOver = true;
+        resetGame.style.opacity = 1;
       } else {
         turn.innerHTML = `Momo's Turn`;
         gameOver = false;
@@ -356,6 +359,7 @@ for (let i = 0; i < spaces.length; i++) {
     gameResult.innerHTML = '';
     turn.innerHTML = `Momo's Turn`;
     gameOver = false;
+    resetGame.style.opacity = 0;
     currentPlayer = momoMark;
   });
 }
