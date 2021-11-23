@@ -17,7 +17,7 @@ section.Instructions {
 nav a {
   text-decoration: none;
 }
-nav {
+nav#gamepage {
   width: 100%;
   height: 70vh;
   justify-content: center;
@@ -87,9 +87,13 @@ h4.game-result {
 button#reset-game {
   background-color: #dbdcff;
   color: teal;
-  font-family: 'Caveat Brush', cursive;
-  font-size: 60px;
   border: none;
   text-align: center;
   opacity: 0;
+}
+nav.div#homepage {
+  height: 10vh;
+}
+nav.h4 {
+  font-size: 30px;
 }
