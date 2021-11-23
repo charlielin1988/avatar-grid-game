@@ -14,7 +14,7 @@
 
 - View the Trello Board that was used to organize and track the creation process [here](https://trello.com/b/K9CQpvOQ/the-best-connect-4-ever).
 
-- My link for the game will live [here](https://github.com/charlielin1988/avatar-grid-game).
+- My link for the game will live [here](https://avatar-grid-game-charlie.surge.sh/index.html).
 
 ---
 
