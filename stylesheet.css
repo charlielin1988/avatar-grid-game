@@ -66,3 +66,13 @@ div.appa {
   display: inline-block;
   margin: 0 0 0 80px;
 }
+button.reset-game {
+  width: 100%;
+  background-color: #dbdcff;
+  color: teal;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 40px;
+  border: none;
+  margin: auto;
+  text-align: center;
+}
