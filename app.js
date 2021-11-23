@@ -4,7 +4,11 @@ const spaces = document.querySelectorAll('.space');
 
 const resetGame = document.querySelector('.reset-game');
 
-let currentPlayer = 'momo';
+const momoMark = '\u{1F463}';
+
+const appaMark = '\u{1F43E}';
+
+let currentPlayer = momoMark;
 
 const gameResult = document.querySelector('.game-result');
 let gameOver = false;
@@ -291,16 +295,16 @@ function checkStatus() {
     gameOver = true;
     return true;
   } else {
-    let momo = 0;
-    let appa = 0;
+    let momoMark = 0;
+    let appaMark = 0;
     for (let i = 0; i < spaces.length; i++) {
-      if (spaces[i].innerHTML === 'momo') {
-        momo++;
-      } else if (spaces[i].innerHTML === 'appa') {
-        appa++;
+      if (spaces[i].innerHTML === momoMark) {
+        momoMark++;
+      } else if (spaces[i].innerHTML === appaMark) {
+        appaMark++;
       }
     }
-    if (momo + appa === 42) {
+    if (momoMark + appaMark === 42) {
       gameResult.innerHTML = 'DRAW!';
     }
   }
@@ -312,14 +316,14 @@ for (let i = 0; i < spaces.length; i++) {
       return;
     }
     if (
-      (spaces[i].innerHTML == 'momo' && spaces[i].innerHTML != 'appa') ||
-      (spaces[i].innerHTML == 'appa' && spaces[i].innerHTML != 'momo')
+      (spaces[i].innerHTML == momoMark && spaces[i].innerHTML != appaMark) ||
+      (spaces[i].innerHTML == appaMark && spaces[i].innerHTML != momoMark)
     ) {
       return;
     }
 
-    if (currentPlayer === 'momo') {
-      spaces[i].innerHTML = 'momo';
+    if (currentPlayer === momoMark) {
+      spaces[i].innerHTML = momoMark;
       checkStatus();
       if (checkStatus()) {
         gameResult.innerHTML = 'Momo Wins!';
@@ -330,9 +334,9 @@ for (let i = 0; i < spaces.length; i++) {
         gameOver = false;
       }
 
-      currentPlayer = 'appa';
-    } else if (currentPlayer === 'appa') {
-      spaces[i].innerHTML = 'appa';
+      currentPlayer = appaMark;
+    } else if (currentPlayer === appaMark) {
+      spaces[i].innerHTML = appaMark;
       checkStatus();
       if (checkStatus()) {
         gameResult.innerHTML = 'Appa Wins!';
@@ -341,7 +345,7 @@ for (let i = 0; i < spaces.length; i++) {
         turn.innerHTML = `Momo's Turn`;
         gameOver = false;
       }
-      currentPlayer = 'momo';
+      currentPlayer = momoMark;
     }
   });
 }
@@ -352,6 +356,6 @@ for (let i = 0; i < spaces.length; i++) {
     gameResult.innerHTML = '';
     turn.innerHTML = `Momo's Turn`;
     gameOver = false;
-    currentPlayer = 'momo';
+    currentPlayer = momoMark;
   });
 }

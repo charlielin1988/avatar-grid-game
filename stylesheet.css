@@ -34,12 +34,12 @@ h1.welcome-gamepage {
 .space {
   display: inline-block;
   border: 1px solid black;
-  font-size: 25px;
+  font-size: 40px;
 }
-#turn {
+div.turn {
   text-align: left;
   color: black;
-  font-size: 25px;
+  font-size: 40px;
 }
 
 body {
@@ -48,10 +48,10 @@ body {
   background-color: #dbdcff;
   margin: auto;
 }
-.gameResult {
+h4.game-result {
   text-align: center;
   color: black;
-  font-size: 25px;
+  font-size: 40px;
 }
 .space:hover {
   background-color: #ffd4e5;
