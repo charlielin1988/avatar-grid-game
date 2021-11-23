@@ -8,10 +8,10 @@ h1.welcome_message {
 }
 
 section.Instructions {
-  font-size: 30px;
+  font-size: 50px;
   text-align: center;
   margin: 0px;
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: 'Caveat Brush', cursive;
 }
 
 nav a {
@@ -37,6 +37,7 @@ h1.welcome-gamepage {
   margin: 0;
   text-align: center;
   font-weight: bold;
+  font-size: 50px;
 }
 
 .grid-container {
@@ -64,7 +65,7 @@ body {
   width: 70vw;
   background-color: #dbdcff;
   margin: auto;
-  font-family: 'Poiret One', cursive;
+  font-family: 'Indie Flower', cursive;
 }
 h4.game-result {
   text-align: center;
@@ -83,13 +84,11 @@ h4.game-result {
   align-items: baseline;
 }
 
-button.reset-game {
-  width: 100%;
+button#reset-game {
   background-color: #dbdcff;
   color: teal;
-  font-family: 'Trebuchet MS', sans-serif;
-  font-size: 40px;
+  font-family: 'Caveat Brush', cursive;
+  font-size: 60px;
   border: none;
-  margin: auto;
   text-align: center;
 }

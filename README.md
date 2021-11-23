@@ -26,7 +26,7 @@
 
 - Appa Gif: [duckduckgo](https://duckduckgo.com/?q=appa+gif&t=h_&iax=images&ia=images&iai=https%3A%2F%2F68.media.tumblr.com%2Fc471cb00dee30d681b4a1bb1545fa680%2Ftumblr_oc9zstmKca1sktgg3o3_500.gif)
 
-- Appa And Momo Gif: [duckduckgo](https://duckduckgo.com/?q=momo+and+appa+gif&t=h_&iax=images&iai=https%3A%2F%2F78.media.tumblr.com%2F51d7e2eae12f2171035197f1fbd23485%2Ftumblr_nlv1ph08TM1s2pxwko1_1280.gif&ia=images)
+- Katara Picture: [duckduckgo](https://duckduckgo.com/?q=katara+chibi&t=h_&iax=images&ia=images&iai=http%3A%2F%2Forig15.deviantart.net%2F49fa%2Ff%2F2013%2F296%2Ff%2F2%2Fchibi_katara_by_uchihasae-d6ribg1.png)
 
 - Unicode Reference: [FlavioCopes](https://flaviocopes.com/javascript-unicode/#unicode-encoding-of-source-files)
 

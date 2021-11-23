@@ -2,7 +2,7 @@ const turn = document.querySelector('.turn');
 
 const spaces = document.querySelectorAll('.space');
 
-const resetGame = document.querySelector('.reset-game');
+const resetGame = document.querySelector('#reset-game');
 
 const momoMark = '\u{1F463}';
 
