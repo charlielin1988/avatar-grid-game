@@ -47,6 +47,7 @@ body {
   width: 70vw;
   background-color: #dbdcff;
   margin: auto;
+  font-family: 'Poiret One', cursive;
 }
 h4.game-result {
   text-align: center;
